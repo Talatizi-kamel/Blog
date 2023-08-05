@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/add-article.css">
     <script src="public/js/index.js">
     </script>
     <title>Blog</title>
@@ -19,8 +20,7 @@
         <link rel="stylesheet" href="public/css/index.css">
         <div class="content">
 
-
-        </div>
+        </div>  
         <?php require_once 'include/footer.php'; ?>
     </div>
 </body>
