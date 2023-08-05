@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="public/css/style.css">
     <script src="public/js/index.js">
     </script>
-    <title>Blog</title>
+    <title>addd article</title>
 </head>
 
 <body>
     <div class="container">
         <?php require_once 'include/header.php'; ?>
-        <link rel="stylesheet" href="public/css/index.css">
+        <link rel="stylesheet" href="public/css/add-article.css">
         <div class="content">
 
 
