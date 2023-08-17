@@ -45,15 +45,20 @@
     text-decoration:none ;
   }
   
-  /* container */
   
-  .container {
-    font-size: 1.6rem;
-    min-height: 100vh;
-    display: flex;
-    flex-flow: column;
-    color: var(--text-color);
-  }
+  /* container */
+
+.container {
+  font-size: 1.6rem;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  color: var(--text-color);
+}
+
+.overflow {
+  overflow: hidden;
+}
   
   /* text */
   

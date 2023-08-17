@@ -1,28 +1,37 @@
+<?php
+$filename = __DIR__ . '/data/article.json';
+$articles = [];
+
+if (file_exists($filename)) {
+  $articles = json_decode(file_get_contents($filename), true) ?? [];
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+  <head>
+      <?php require_once 'include/head.php' ?>
+      <link rel="stylesheet" href="/public/css/index.css">
+      <title>Blog</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/add-article.css">
-    <script src="public/js/index.js">
-    </script>
-    <title>Blog</title>
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <?php require_once 'include/header.php'; ?>
-        <link rel="stylesheet" href="public/css/index.css">
-        <div class="content">
-
-        </div>  
-        <?php require_once 'include/footer.php'; ?>
+      <?php require_once 'include/header.php' ?>
+      <div class="content">
+        <div class="articles-container">
+          <?php foreach ($articles as $a) : ?>
+            <div class="article block">
+              <div class="overflow">
+                <div class="img-container" style="background-image:url(<?= $a['image'] ?>"></div>
+              </div>
+              <h2><?= $a['title'] ?></h2>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <?php require_once 'include/footer.php' ?>
     </div>
-</body>
 
+  </body>
 </html>
