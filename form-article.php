@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <?php require_once 'include/header.php'; ?>
-        <link rel="stylesheet" href="public/css/add-article.css">
+        <link rel="stylesheet" href="public/css/form-article.css">
         <div class="content">
             <div class="block p-20 form-container">
 
