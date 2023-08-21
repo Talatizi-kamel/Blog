@@ -5,42 +5,46 @@ $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $id = $_GET['id'] ?? '';
 
 if (!$id) {
-  header('Location: /');
+    header('Location: /');
 } else {
-  if (file_exists($filename)) {
-    $articles = json_decode(file_get_contents($filename), true) ?? [];
-    $articleIndex = array_search($id, array_column($articles, 'id'));
-    $article = $articles[$articleIndex];
-  }
+    if (file_exists($filename)) {
+        $articles = json_decode(file_get_contents($filename), true) ?? [];
+        $articleIndex = array_search($id, array_column($articles, 'id'));
+        $article = $articles[$articleIndex];
+    }
 }
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
-  <head>
-      <?php require_once 'include/head.php' ?>
-      <link rel="stylesheet" href="/public/css/show-article.css">
-      <title>Article</title>
-  </head>
+<head>
+    <?php require_once 'include/head.php' ?>
+    <link rel="stylesheet" href="/public/css/show-article.css">
+    <title>Article</title>
+</head>
 
-  <body>
+<body>
     <div class="container">
-      <?php require_once 'include/header.php' ?>
-      <div class="content">
-        <div class="article-container">
-          <a class="article-back" href="/">Retour à la liste des articles</a>
-          <div class="article-cover-img" style="background-image:url(<?= $article['image'] ?>)"></div>
-          <h1 class="article-title"><?= $article['title'] ?></h1>
-          <div class="separator"></div>
-          <p class="article-content"><?= $article['content'] ?></p>
+        <?php require_once 'include/header.php' ?>
+        <div class="content">
+            <div class="article-container">
+                <a class="article-back" href="/">Retour à la liste des articles</a>
+                <div class="article-cover-img" style="background-image:url(<?= $article['image'] ?>)"></div>
+                <h1 class="article-title"><?= $article['title'] ?></h1>
+                <div class="separator"></div>
+                <p class="article-content"><?= $article['content'] ?></p>
+                <div class="action">
+                    <a class="btn btn-secondary" href="/delete-article.php?id=<?= $article['id'] ?>">Supprimer</a>
+                    <a class="btn btn-primary" href="/form-article.php?id=<?= $article['id'] ?>">Editer l'article</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <?php require_once 'include/footer.php' ?>
+        <?php require_once 'include/footer.php' ?>
     </div>
 
-  </body>
+</body>
 
 </html>
